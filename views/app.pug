@@ -1,0 +1,21 @@
+extends layout
+
+block scripts
+  script.
+    window.onload = function () {
+      const ui = SwaggerUIBundle({
+        url: '/doc/swagger.json',
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl
+        ],
+        layout: "StandaloneLayout",
+        validatorUrl: false
+      })
+      window.ui = ui
+    }

@@ -1,0 +1,18 @@
+{
+	"apps" : [
+    {
+      "name"            : "yee-api-doc",
+      "script"          : "./bin/www",
+      "log_date_format" : "YYYY-MM-DD HH:mm Z",
+      "out_file"        : "./logs/pm2-out.log",
+      "error_file"      : "./logs/pm2-err.log",
+      "pid_file"        : "./logs/yee-api-doc.pid",
+      "ignoreWatch"     : ["node_modules"],
+      "watch"           : "true",
+      "exec_mode"       : "fork_mode",
+      "env": {
+        "NODE_ENV"      : "production"
+      }
+    }
+  ]
+}
