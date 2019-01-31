@@ -14,12 +14,17 @@
 
 > 也可以使用docker container run命令的--rm参数，在容器终止运行后自动删除容器文件
 
-- `docker container run --rm -p 8000:5000 -it yusingz/yee_api bash`
+- `docker container run --name api-doc --rm -p 8000:5000 -it yusingz/yee_api bash`
 
 - `docker image rm [选项] <镜像1> [<镜像2> ...]` #删除本地镜像 <镜像> 可以是 镜像短 ID、镜像长 ID、镜像名 或者 镜像摘要
 
+- `docker exec -it api-doc bash`命令行进入`api-doc`镜像
+touch test.html
+echo "<h1>test</h1> > test.html
+
 
 ### docker启动
+> 镜像是文件, 容器是进程。 容器是基于镜像创建的, 即容器中的进程依赖于镜像中的文件, 这里的文件包括进程运行所需要的可执行文件， 依赖软件， 库文件， 配置文件等等，简单点说容器是镜像运行的一个实例。
 
 1. 编写Dockerfile文件
 
@@ -55,7 +60,7 @@ EXPOSE 5000
 - 你需要指定要提交保存容器的ID(通过`docker ps -l` 命令获得)
 - 无需拷贝完整的id，通常来讲最开始的三至四个字母即可区分 
 
-`docker commit 698 yusingz/yee_api`
+`docker commit <container_id> <image_name>`
 
 5. 在容器里启动应用  
 启动成功后会出现：`root@7972e2f4fd7e:/app#`  
