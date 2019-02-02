@@ -4,4 +4,4 @@ WORKDIR /app
 RUN npm install --registry=https://registry.npm.taobao.org
 EXPOSE 5000
 
-CMD node start
+CMD node bin/www

@@ -4,7 +4,8 @@
 1. `pm2 start process.json` or `pm2 start ecosystem.config.js`
 
 ### docker常用命令
-- `docker container ls` #列出正在运行的容器
+- `docker ps` #列出正在运行的容器
+- `docker ps -a` #查看所有容器，包括停止的
 - `docker container kill [containerID]` #停止指定的容器运行
 
 > 容器停止运行之后，并不会消失，用下面的命令删除容器文件
@@ -18,9 +19,11 @@
 
 - `docker image rm [选项] <镜像1> [<镜像2> ...]` #删除本地镜像 <镜像> 可以是 镜像短 ID、镜像长 ID、镜像名 或者 镜像摘要
 
-- `docker exec -it api-doc bash`命令行进入`api-doc`镜像
+- `docker exec -it api-doc bash`命令行进入`api-doc`容器
 touch test.html
 echo "<h1>test</h1> > test.html
+
+- 退出时，使用`[ctrl + D]`，这样会结束docker当前线程，容器结束，可以使用`[ctrl + P][ctrl + Q]`退出而不终止容器运行
 
 
 ### docker启动
@@ -58,9 +61,9 @@ EXPOSE 5000
 4. 修改容器
 - 运行`docker commit`，可以查看该命令的参数列表
 - 你需要指定要提交保存容器的ID(通过`docker ps -l` 命令获得)
-- 无需拷贝完整的id，通常来讲最开始的三至四个字母即可区分 
-
-`docker commit <container_id> <image_name>`
+- 无需拷贝完整的id，通常来讲最开始的三至四个字母即可区分
+- **查看docker容器修改信息**`docker diff <container_id>`
+- 保存容器内的修改`docker commit <container_id> <image_name>`
 
 5. 在容器里启动应用  
 启动成功后会出现：`root@7972e2f4fd7e:/app#`  
