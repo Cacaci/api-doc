@@ -1,6 +1,9 @@
 ### 一个使用Swagger + pm2 + jenkins构建的在线文档模板
 
 ### pm2 + jenkins + gitlab自动化部署实践
+
+运行`pm2 ecosystem`在根目录生产`ecosystem.config.js`文件，然后编辑相应的设置项，具体参考官网。
+
 1. `pm2 start process.json` or `pm2 start ecosystem.config.js`
 
 ### docker常用命令
