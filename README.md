@@ -80,3 +80,10 @@ EXPOSE 5000
 - `docker image tag yee_api:0.0.1 yusingz/yee_api:0.0.1` #标注用户名和版本，也可以不标注用户名
 - `docker image build -t [username]/[repository][:tag]` #重新构建image文件
 - `docker image push [username]/[repository]:[tag]`
+
+### Linux 环境安装
+
+1. 配置好git权限
+2. 使用 nvm 来安装和管理 node，运行 `wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash`来安装 nvm ，安装完需要重启命令行才能生效，通过命令行`nvm ls-remote`查看可安装的node版本，安装指定版本`nvm install 10.16.0`
+3. 安装 pm2 来管理项目进程
+4. 安装 nginx 参考`https://qizhanming.com/blog/2018/08/06/how-to-install-nginx-on-centos-7` 查看nginx安装目录`ps -ef | grep nginx`， 查看nginx.conf配置文件目录`nginx -t`
